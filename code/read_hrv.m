@@ -32,5 +32,8 @@ opts = setvaropts(opts, ["HR", "HRConfidence", "HRV"], "TreatAsMissing", '');
 
 % Import the data
 tabledata = readtable(filename, opts, "UseExcel", false);
-output_var = tabledata(tabledata.HRV<101,:);
+output_notclean = tabledata(tabledata.HRV<101,:);
+
+% Clear first low quality rows of data
+output_var=cutoff_low_conf(output_notclean);
 

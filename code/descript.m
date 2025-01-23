@@ -5,10 +5,13 @@ function desc_table = descript(input_var)
     stdValue = std(input_var);
     rangeValue = range(input_var);
     
+    % Get the name of the input variable
+    var_name = inputname(1); % Retrieve the name of the first input argument
+    
     % Create a table with the statistics
     desc_table = table(meanValue, medianValue, stdValue, rangeValue, ...
                               'VariableNames', {'Mean', 'Median', 'StdDev', 'Range'}, ...
-                              'RowNames', {input_var});
+                              'RowNames', {var_name});
 end
 
 

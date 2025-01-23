@@ -1,4 +1,4 @@
-function [harmonics, importanceMetrics, reconstructedSignal] = decomposeHarmonicsWithEnergy(signal, Fs, n, m)
+function [harmonics, importanceMetrics, reconstructedSignal] = decomp_harm_ver2(signal, Fs, n, m)
     % DECOMPOSEHARMONICSWITHENERGY Decomposes a signal into its most important harmonics.
     % Includes phase information for reconstruction and measures the level
     % of explanation using power contribution.
