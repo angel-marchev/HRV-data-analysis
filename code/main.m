@@ -37,8 +37,10 @@ desc_table1 = descript(before1_var);
 desc_table2 = descript(before2_var);
 desc_table3 = descript(after1_var);
 desc_table4 = descript(after2_var);
+desc_table5 = descript(bef_all);
+desc_table6 = descript(aft_all);
 
-desc_table = vertcat(desc_table1, desc_table2, desc_table3, desc_table4);
+desc_table = vertcat(desc_table1, desc_table2, desc_table3, desc_table4, desc_table5, desc_table6);
 
 clearvars desc_table1 desc_table2 desc_table3 desc_table4
 
