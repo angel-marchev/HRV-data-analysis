@@ -1,4 +1,4 @@
-function [param_table, plot, z_test] = compare_analysis(data1, data2)
+function [param_table, plot, z_test, t_test] = compare_analysis(data1, data2)
 %% Desription
 % makes comparative analysis of two datasets by their distribution fits
 
@@ -8,9 +8,10 @@ function [param_table, plot, z_test] = compare_analysis(data1, data2)
 param_table = vertcat(param_table1, param_table2);
 
 %% Z test comparison
-z_test = compare_distfit(param_table{1,1}, param_table{1,2}, size(data1,1),...
+z_test = compare_distfit_z(param_table{1,1}, param_table{1,2}, size(data1,1),...
     param_table{2,1}, param_table{2,2}, size(data2,1));
 
+t_test=compare_distfit_t(data1,data2);
 
 %% Retrieve variable names for labeling
 data1_name = inputname(1); % Name of data1 (e.g., 'before1_var')

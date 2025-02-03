@@ -32,8 +32,14 @@ opts = setvaropts(opts, ["HR", "HRConfidence", "HRV"], "TreatAsMissing", '');
 
 % Import the data
 tabledata = readtable(filename, opts, "UseExcel", false);
-output_notclean = tabledata(tabledata.HRV<101,:);
 
-% Clear first low quality rows of data
-output_var=cutoff_low_conf(output_notclean);
+% Clear first low quality rows of data based on HRV
+output_notclean = cut_off_initial_bad(tabledata);
+
+% Clear first low quality rows of data based on HRConfidence
+output_var_noisy=cutoff_low_conf(output_notclean, 60);
+
+output_var = filloutliers(output_var_noisy, 'clip', ...
+                        'movmedian', 1000, ...
+                        'ThresholdFactor', 1.5);
 
