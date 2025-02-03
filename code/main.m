@@ -30,6 +30,16 @@ bef_all=[before1_var;before2_var];
 aft_all=[after1_var;after2_var];
 
 clearvars minlen a b c d before1 before2 after1 after2 rawfilename eq_size
+%% plots
+
+% Plot the data
+figure;
+plot(after2_var, 'Color', 'r', 'LineWidth', 1);
+xlabel('Time');
+ylabel('HRV');
+title('HRV of experiment After 2');
+ylim([0 50]); % Set y-axis limits
+grid on;
 
 %% Descriptives comparison
 
